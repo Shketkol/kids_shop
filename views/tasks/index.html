@@ -1,0 +1,23 @@
+<div class="content">
+    <h3>Задачи</h3><br/>
+    <table class="table">
+    <tr>
+        <td>Название задачи</td>
+        <td>Название проекта</td>
+        <td>Кто выполняет</td>
+        <td>Номер группы</td>
+        <td>Готовность в %</td>
+    </tr>
+    <?php foreach($data['tasks'] as $task_data) { ?>
+    <tr>
+        <td><b><?=$task_data['name']?></td>
+        <td><b><?=$task_data['name']?></td>
+        <td><b><?=$task_data['login']?></td>
+        <td><b><?=$task_data['group']?></td>
+        <td><b><?=$task_data['work']?></td>
+    </tr>
+    <?php } ?>
+    </table>
+</div>
+
+

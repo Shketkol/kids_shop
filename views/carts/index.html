@@ -1,0 +1,61 @@
+
+<h3>Моя корзина</h3>
+<?php if (isset($_SESSION['name'])){
+$count = 0;
+?>
+<table style="width: 1200px">
+    <tr>
+        <td>
+            Картинка
+        </td>
+        <td>
+            Название
+        </td>
+        <td>
+            Количество
+        </td>
+        <td>
+            Цена за 1 шт.
+        </td>
+        <td>
+            Цена
+         </td>
+    </tr>
+</table>
+    <?php if (isset($data['tovar'])){
+    foreach ($data['tovar'] as $tovar) {
+    $count+=$tovar['price'];?>
+        <table style="width: 1200px">
+             <tr>
+                    <td>
+                         <img src="<?= $tovar['url_img']?>" alt="" width="50px" height="56px">
+                    </td>
+                    <td>
+                         <?= $tovar['name']?>
+                    </td>
+                    <td>
+                        <form action="/carts/index" method="get" style="clear: both">
+                            <input type="hidden" name="id_tovar" value="<?=$tovar['id']?>"/>
+                            <input type="number" id="kol" name="kol" step="1" style="width: 50px" value="1">
+                            <input type="submit" value="Пересчитать">
+                        </form>
+                    </td>
+                    <td>
+                        <?= $tovar['price']?>
+                    </td>
+                    <td>
+                        <?= $data['tovar']['kol']*$tovar['price']?>
+                     <a href="/carts/index?action=delete&id=<?=$tovar['id']?>">Удалить</a>
+                    </td>
+
+            </tr>
+        </table>
+    <?php } } else { ?>
+            <p>Корзина пуста</p>
+       <?php }  ?>
+        <h3 style="float: right">К оплате: <?= $count ?> </h3>
+        <a href="/carts/index?action=clear">Очистить корзину</a>
+<?php } else {?>
+        <h3>Вы не зарегистрированны</h3>
+<?php } ?>
+

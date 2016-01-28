@@ -1,0 +1,61 @@
+<div class="content">
+    <div class="new_tovar">
+   <a href="/admin/tovary/add/"><button class="btn btn-sm btn-success">Добавить товар</button></a>
+    </div>
+    <table style="width: 1200px; margin: 0 auto">
+        <tr style="border: 1px solid black">
+            <td>
+                Картинка
+            </td>
+            <td>
+                Название
+            </td>
+            <td>
+                Описание
+            </td>
+            <td>
+                Бренд
+            </td>
+            <td>
+                Наличее на складе
+            </td>
+            <td>
+                Цена
+            </td>
+            <td>
+                Опции
+            </td>
+        </tr>
+        <?php foreach($data['toys'] as $value => $toys) { ?>
+        <tr style="border: 1px solid black; cursor: pointer" onclick="window.location.href='/pages/home'; return false">
+            <td>
+                <img src="<?php echo $toys['url_img']?>" width="100px" height="115px">
+            </td>
+            <td>
+                <?=$toys['name']?>
+            </td>
+            <td>
+                <div style="width: 200px"><?=$toys['description']?></div>
+            </td>
+            <td>
+                <?=$toys['brend']?>
+            </td>
+            <td>
+                <?php if ($toys['sklad'] == 1){?>
+                <h4>Есть на складе</h4>
+                <?php } else {?>
+                <h4>Нет на складе</h4>
+                <?php }?>
+            </td>
+            <td>
+                <?=$toys['price']?>
+            </td>
+            <td>
+                <a href="/admin/tovary/edit/<?=$toys['id']?>"><button class="btn btn-sm btn-primary">edit</button></a>
+                <a href="/admin/tovary/delete/<?=$toys['id']?>" onclick="return confirmDelete();"><button class="btn btn-sm btn-warning">delete</button></a>
+            </td>
+        </tr>
+        <?php } ?>
+    </table>
+
+</div>

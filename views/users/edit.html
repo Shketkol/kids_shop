@@ -1,0 +1,26 @@
+<h3>Редактирование профиля</h3><br/>
+<form method="post" action="">
+    <input type="hidden" name="id" value="<?=$data['user']['id']?>" />
+
+    <div class="form-group">
+        <label for="login">Фамилия, имя, очество</label>
+        <input type="text" id="login" name="login" value="<?=$data['user']['login']?>" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="mail">E-mail</label>
+        <input type="text" id="mail" name="mail" value="<?=$data['user']['mail']?>" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="the_post">Должность</label>
+        <input type="text" id="the_post" name="the_post" value="<?=$data['user']['the_post']?>" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="group_id">Группа</label>
+        <input type="text" id="group_id" name="group_id" value="<?=$data['user']['group_id']?>" class="form-control" />
+    </div>
+
+    <input type="submit" class="btn btn-success" value="Сохранить"/>
+</form>

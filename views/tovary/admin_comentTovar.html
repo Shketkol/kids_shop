@@ -1,0 +1,33 @@
+<div class="content">
+    <table style="width: 1100px; margin: 0 auto">
+        <tr style="border: 1px solid black">
+            <td>
+                Имя
+            </td>
+            <td>
+                Текст
+            </td>
+            <td>
+                Дата
+            </td>
+            <td>
+                Товар
+            </td>
+            <?php foreach($data['comentTovar'] as $coment) { ?>
+        <tr style="border: 1px solid black">
+            <td>
+                <?=$coment['name']?>
+            </td>
+            <td>
+                <?=$coment['text']?>
+            </td>
+            <td>
+                <?=$coment['time']?>
+            </td>
+            <td>
+                <?=$coment['name_tovar']?>
+            </td>
+            <?php } ?>
+    </table>
+
+</div>

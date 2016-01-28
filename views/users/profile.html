@@ -1,0 +1,39 @@
+<div class="content">
+<h3>Информация по профилю</h3>
+    <table class="table">
+        <?php foreach($data['users'] as $user_data) { ?>
+        <tr>
+            <td> Фамилия, имя, очество </td>
+            <td> <?= $user_data['login']  ?> </td>
+        </tr>
+        <tr>
+            <td> E-mail </td>
+            <td> <?= $user_data['mail']  ?> </td>
+        </tr>
+        <tr>
+            <td> Должность </td>
+            <?php switch ($user_data['the_post']) {
+              case "boss":
+              echo "<td> Начальник отдела </td>"; break;
+              case "nk":
+              echo "<td> Норм контроль  </td>"; break;
+              case "gs":
+              echo "<td> Главспец  </td>"; break;
+              case "b_g":
+              echo "<td> Руководитель группы  </td>"; break;
+              case "en1":
+              echo "<td> Инженер 1 категории   </td>"; break;
+              case "en2":
+              echo "<td> Инженер 2 категории  </td>"; break;
+              case "en3":
+              echo "<td> Инженер 3 категории  </td>"; break;
+             } ?>
+        </tr>
+        <tr>
+            <td> Группа </td>
+            <td> <?= $user_data['group_id']  ?> </td>
+        </tr>
+        <?php } ?>
+    </table>
+    <a href="/users/edit/"><button class="btn btn-sm btn-success">Редактировать профиль</button></a>
+</div>

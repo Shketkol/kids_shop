@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Детский магазин</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- FONTS -->
+    <link rel="stylesheet" href="/webroot/css/style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/webroot/js/jquery.orbit.js"></script>
+    <script type="text/javascript" src="/webroot/js/jquery.orbit.min.js"></script>
+    <script type="text/javascript" src="/webroot/js/jquery-1.4.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#featured').orbit({
+                'bullets': true,
+                'timer' : true,
+                'animation' : 'horizontal-slide'
+            });
+        });
+    </script>
+</head>
+<body>
+<header>
+    <div class="top_menu">
+        <ul>
+            <li class="logo">
+                <img src="/webroot/img/logo.png" alt="" >
+            </li>
+            <li class="item">
+                <div class="img">
+                    <img src="/webroot/img/delivery.png" alt="">
+                </div>
+                <div class="text">
+                    <p>Бесплатная доставка</p>
+                    <p>tehteh</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="img">
+                    <img src="/webroot/img/phone.png" alt="">
+                </div>
+                <div class="text">
+                    <p>+38(096)333-33-33</p>
+                    <p>regte</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <nav>
+        <div class="nav_menu">
+            <ul>
+                <li<?php if( App::getRouter()->getController() == 'pages' ) {?><?php } ?>><a href="/pages/home">ГЛАВНАЯ</a></li>
+                <li><a href="">ДЕТСКАЯ ОДЕЖДА</a></li>
+                <li>
+                    <a href="/tovary/index">ИГРУШКИ</a></li>
+                <li><a href="">АКСЕССУАРЫ</a></li>
+                <li>
+                    <a href='/carts/index'>Корзина</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="box_nav">
+        <div class="info">
+            <ul>
+               <?php if (isset($_SESSION['name'])) { ?>
+                <li>
+                    <a href=""><?=$_SESSION['name'].' '.$_SESSION['l_name']?></a>
+                </li>
+                    <?php if ($_SESSION['role'] == 'admin'){?>
+                        <li>
+                            <a href="/admin">Настройка магазина</a>
+                        </li>
+                    <?php } ?>
+                <li>
+                    <a href="/users/logout">Выход</a>
+                </li>
+
+                <?php }else{?>
+                <li>
+                    <a href="/users/login">Вход</a>
+                </li>
+                <li>
+                    <a href="/users/register">Ригистрация</a>
+                </li>
+                <?php } ?>
+                <li>
+                    <form action="" style="float: right; padding-right: 50px">
+                        Поиск <input type="search" name="search">
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<content>
+    <div class="container">
+        <?php if( Session::hasFlash() ){ ?>
+        <div class="alert alert-info" role="alert">
+            <?php Session::flash(); ?>
+        </div>
+        <?php } ?>
+
+        <?=$data['content']?>
+    </div>
+</content>
+<footer>
+    <div class="box_news">
+        <ul>
+            <li class="new">
+               PURCHASE KIDSMARKET FOR $55 NOW!
+               <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet.
+            </li>
+            <li>
+                ПОДПИСКА
+            </li>
+            <li class="follow">
+                FOLLOW US
+            </li>
+        </ul>
+    </div>
+    <div class="info_site">
+        <div class="news">
+            <ul>
+                <li>
+                    <a href="">О нас</a>
+                </li>
+                <li>
+                    <a href="">Оплата</a>
+                </li>
+                <li>
+                    <a href="">Доставка</a>
+                </li>
+                <li>
+                    <a href="">Контакты</a>
+                </li>
+            </ul>
+        </div>
+        <div class="information">
+            <h4>ИНФОРМАЦИЯ</h4>
+            <ul>
+                <li>
+                    <a href="">О нас</a>
+                </li>
+                <li>
+                    <a href="">Оплата</a>
+                </li>
+                <li>
+                    <a href="">Доставка</a>
+                </li>
+                <li>
+                    <a href="">Контакты</a>
+                </li>
+            </ul>
+        </div>
+        <div class="contact">
+            <h4>КОНТАКТЫ</h4>
+            <ul>
+                <li>
+                    Megnor Com pvt Ltd, 507-Union Trade Center,
+
+                </li>
+                <li>
+                    (+91)-8866888222
+                </li>
+                <li>
+                    support@templatemela.com
+                </li>
+            </ul>
+            <h4>Оплата</h4>
+            <ul>
+                <li>
+                    Megnor Com pvt Ltd, 507-Union Trade Center,
+                    Udhana Darwaja,Ring Road, Surat, India.
+                </li>
+                <li>
+                    (+91)-8866888222
+                </li>
+                <li>
+                    support@templatemela.com
+                </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    $(function() {
+        $('#ei-slider').eislideshow({
+            easing		: 'easeOutExpo',
+            titleeasing	: 'easeOutExpo',
+            titlespeed	: 1200
+        });
+    });
+</script>
+</body>
+</html>

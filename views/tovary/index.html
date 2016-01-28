@@ -1,0 +1,59 @@
+    <meta charset="UTF-8">
+<div class="content">
+    <div class="left_block">
+        <h3> Фильтр </h3>
+        <ul>
+            <li>
+                <a href="/tovary/index/toy/price">Сортировка по цене</a>
+            </li>
+            <li>
+                <a href="/tovary/index/toy/name">Сортировка по имени</a>
+            </li>
+            <li>
+                <a href="users/login">Сортировка по возрасту</a>
+            </li>
+        </ul>
+        <div class="left_banner">
+            <img src="/webroot/img/left-banner-255x339.png" alt="">
+        </div>
+        <div class="latest_tovar">
+            <table>
+                <?php foreach($data['latest tovar'] as $value => $toys) { ?>
+                <tr>
+                    <th>
+                        <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>" height="115px" width="115px"></a>
+                    </th>
+                    <th>
+                        <?=$toys['name']?>
+                        <br>
+                        <strong style="font-size: 14pt"><?=$toys['price']?>грн</strong>
+                    </th>
+                </tr>
+                <?php } ?>
+            </table>
+        </div>
+    </div>
+    <div class="right_block">
+        <h3>Игрушки для детей</h3><br/>
+        <?php foreach($data['toys'] as $value => $toys) { ?>
+        <table style="float: left">
+            <td style="float: left">
+                <div class="block1">
+                    <div class="block2">
+                        <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>" alt=""></a>
+                    </div>
+                    <div class="block3">
+                        <a href="">Добавить в корзину</a>
+                    </div>
+                </div>
+
+                <br>
+                <?=$toys['name']?>
+                <br>
+                <strong style="font-size: 14pt"><?=$toys['price']?>грн</strong>
+            </td>
+
+        </table>
+        <?php } ?>
+    </div>
+</div>
