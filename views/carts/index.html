@@ -1,4 +1,11 @@
+<script>
+    $(document).ready(function () {
+        $('.btn').click(function () {
+            $(this).siblings('.list').slideToggle(300);
+        })
 
+    });
+</script>
 <h3>Моя корзина</h3>
 <?php if (isset($_SESSION['name'])){
 $count = 0;
@@ -19,43 +26,99 @@ $count = 0;
         </td>
         <td>
             Цена
-         </td>
+        </td>
     </tr>
 </table>
-    <?php if (isset($data['tovar'])){
+<?php if (isset($data['tovar'])){
     foreach ($data['tovar'] as $tovar) {
     $count+=$tovar['price'];?>
-        <table style="width: 1200px">
-             <tr>
-                    <td>
-                         <img src="<?= $tovar['url_img']?>" alt="" width="50px" height="56px">
-                    </td>
-                    <td>
-                         <?= $tovar['name']?>
-                    </td>
-                    <td>
-                        <form action="/carts/index" method="get" style="clear: both">
-                            <input type="hidden" name="id_tovar" value="<?=$tovar['id']?>"/>
-                            <input type="number" id="kol" name="kol" step="1" style="width: 50px" value="1">
-                            <input type="submit" value="Пересчитать">
-                        </form>
-                    </td>
-                    <td>
-                        <?= $tovar['price']?>
-                    </td>
-                    <td>
-                        <?= $data['tovar']['kol']*$tovar['price']?>
-                     <a href="/carts/index?action=delete&id=<?=$tovar['id']?>">Удалить</a>
-                    </td>
+<table style="width: 1200px">
+    <tr>
+        <td>
+            <img src="<?= $tovar['url_img']?>" alt="" width="50px" height="56px">
+        </td>
+        <td>
+            <?= $tovar['name']?>
+        </td>
+        <td>
+            <form action="/carts/index" method="get" style="clear: both">
+                <input type="hidden" name="id_tovar" value="<?=$tovar['id']?>"/>
+                <input type="number" id="kol" name="kol" step="1" style="width: 50px" value="1">
+                <input type="submit" value="Пересчитать">
+            </form>
+        </td>
+        <td>
+            <?= $tovar['price']?>
+        </td>
+        <td>
+            <?= $tovar['kol'] * $tovar['price']?>
+            <a href="/carts/index?action=delete&id=<?=$tovar['id']?>">Удалить</a>
+        </td>
 
-            </tr>
-        </table>
-    <?php } } else { ?>
-            <p>Корзина пуста</p>
-       <?php }  ?>
-        <h3 style="float: right">К оплате: <?= $count ?> </h3>
-        <a href="/carts/index?action=clear">Очистить корзину</a>
+    </tr>
+</table>
+<?php } } else { ?>
+<p>Корзина пуста</p>
+<?php }  ?>
+<h3 style="float: right">К оплате: <?= $count ?> </h3>
+<a href="/carts/index?action=clear">Очистить корзину</a>
+<div class="border">
+    <a href="#" class="btn" style="font-size: 20pt">Оформить заказ:</a>
+    <form action="/carts/qq" class="list" method="post">
+        <?php foreach($data['user'] as $user){ ?>
+        <div class="form-group">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" class="form-control" value="<?=$user['name']?>"/>
+        </div>
+        <div class="form-group">
+            <label for="l_name">Фамилия</label>
+            <input type="text" id="l_name" name="l_name" class="form-control" value="<?=$user['l_name']?>"/>
+        </div>
+        <div class="form-group">
+            <label for="mail">E-mail</label>
+            <input type="email" id="mail" name="mail" class="form-control" value="<?=$user['mail']?>"/>
+        </div>
+        <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input type="text" id="phone" name="phone" class="form-control" value="<?=$user['phone']?>"/>
+        </div>
+        <div class="korpus">
+            <label for="delivery">Способ достаки:</label>
+            <input type="radio" name="courer" checked="checked" id="courer"/>
+            <label for="courer">Курьер</label>
+            <input type="radio" name="nova_pochta" id="nova_pochta"/>
+            <label for="nova_pochta">Новая почта</label>
+            <div>
+                <div class="form-group">
+                    <label for="street">Улица</label>
+                    <input type="text" id="street" name="street" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="house">Дом</label>
+                    <input type="text" id="house" name="house" class="form-control"/>
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="town">Город</label>
+                    <input type="text" id="town" name="town" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="store">Склад</label>
+                    <input type="text" id="store" name="store" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="coment">Коментарий к заказу</label><br>
+            <textarea name="text" id="coment" cols="60" rows="3"></textarea>
+        </div>
+        <input type="submit" class="btn btn-success" value="Оформить заказ"/>
+        <?php } ?>
+    </form>
+</div>
+
 <?php } else {?>
-        <h3>Вы не зарегистрированны</h3>
+<h3>Вы не зарегистрированны</h3>
 <?php } ?>
 

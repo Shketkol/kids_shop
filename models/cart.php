@@ -9,8 +9,11 @@ class Cart extends Model{
           $id_sql = implode(',', $id_sql);
           //var_dump($id_sql); die;
         $sql = "select * from tovary where id in ({$id_sql})";
+        return $this->db->query($sql);
+    }
 
-
+    public function getUser($id_user){
+        $sql = "select * from users where id = '{$id_user}'";
         return $this->db->query($sql);
     }
    /**

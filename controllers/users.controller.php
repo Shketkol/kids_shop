@@ -15,6 +15,7 @@ class UsersController extends Controller
             $result = $this->model->register($_POST);
             if ($result) {
                 $user = $this->model->getById($result);
+                Session::set('id', $user['id']);
                 Session::set('name', $user['name']);
                 Session::set('l_name', $user['l_name']);
                 Session::set('role', $user['role']);

@@ -194,14 +194,45 @@ label:hover {
 
 /*------hover effect tovar --------*/
 
-.block3{
-    display:none;
-    background-color: black;
+.image_title{
+    border:1px solid transparent;
+    overflow:hidden;
 }
-.block1:hover .block3{
-    display:block;
-    margin-top:-30px;
+
+.title{
+    width:240px;
     height:30px;
+    vertical-align: middle;
+    background: rgb(236, 123, 96);
+    position:relative;
+    top:-45px;/*-155 */
+    -moz-transition:1s;
+    -webkit-transition:1s;
+    -o-transition:1s;
+    transition:1s;
+}
+.title p {
+    color:#fff;
+}
+.image_title:hover .title{
+    top:-60px;
+}
+
+/*------hidden block--------*/
+
+.border {
+    clear: both;
+    padding: 10px;
+}
+.btn {
+    text-decoration: none;
+    color: black;
+}
+.list {
+    display: none;
+    list-style-type: none;
+    margin: 10px;
+    overflow: hidden;
 }
 
 
