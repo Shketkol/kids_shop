@@ -16,6 +16,27 @@ class Cart extends Model{
         $sql = "select * from users where id = '{$id_user}'";
         return $this->db->query($sql);
     }
+    public function addIdOrder($id_user){
+        $time = date("Y.m.d G:i:s", time());
+        $sql = "insert into order_id
+                set id_user = '{$id_user}',
+                time = '{$time}'
+                ";
+        return $this->db->query($sql);
+    }
+    public function showOrderId($id_user){
+        $sql = "select * from shop.order_id where id_user = '{$id_user}' order by time desc limit 1";
+        return $this->db->query($sql);
+    }
+    public function addOrder($id_order, $id_tovar){
+        foreach ($id_tovar as $value){
+        $sql = "insert into orders
+                set id_orders = '{$id_order}',
+                id_tovar = '{$value}'
+                ";
+        $this->db->query($sql);
+        }
+    }
    /**
      *  Constructor
      */

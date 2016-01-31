@@ -77,6 +77,7 @@ class CartsController extends Controller
         $tovar = array();
         $this->data['tovar'] = array_merge($tovar, $key);
         $tovar1 = array();
+
         if ($_GET) {
             $kol = (int)$_GET['kol'];
             $id_tovar = (int)$_GET['id_tovar'];
@@ -91,17 +92,29 @@ class CartsController extends Controller
             }
             $this->data['tovar'] = array();
             $this->data['tovar'] = array_merge($this->data['tovar'],$tovar1);
-
         }
         Session::set('tovar',$this->data['tovar']);
         }
 
-        public function qq(){
-            $tovar = array();
-            array_push($tovar,$_POST);
-            array_push($tovar,$_SESSION['tovar']);
-            echo "<pre>";
-            var_dump($tovar);  die;
+        public function order(){
+            $id_user = $_SESSION['id'];
+            $this->model->addIdOrder($id_user);
+            $user_id = $this->model->showOrderId($id_user);
+            $id_order = null;
+            foreach ($user_id as $value) {
+                $id_order = (int) array_shift($value);
+            }
+            $id_tovar = array();
+            foreach ($_SESSION['tovar'] as $value ) {
+                array_push($id_tovar,(int)$value['id']);
+            }
+            $this->model->addOrder($id_order, $id_tovar);
+            //echo "<pre>";
+            //var_dump($id_order);  die;
+            //$tovar = array();
+            //array_push($tovar,$_POST);
+            //array_push($tovar,$_SESSION['tovar']);
+
         }
 
 
