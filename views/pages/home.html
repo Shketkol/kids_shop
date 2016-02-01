@@ -1,8 +1,12 @@
-    <div id="featured">
-        <img src="/webroot/img/sale1.jpg" alt="image01" />
-        <img src="/webroot/img/sale2.jpg" alt="image02" />
-        <img src="/webroot/img/sale3.jpg" alt="image03" />
+<div class="slider">
+    <img src="/webroot/img/sale1.jpg" alt="image01">
+    <img src="/webroot/img/sale2.jpg" alt="image02">
+    <img src="/webroot/img/sale3.jpg" alt="image03">
+    <div class="buttons">
+        <a href="#" class="prev"></a>
+        <a href="#" class="next"></a>
     </div>
+</div>
 <div class="toy">
     <ul>
         <li class="box1"></li>
@@ -17,17 +21,20 @@
     <label for="vkl2">ПОСЛЕДНИЕ</label>
     <input type="radio" name="odin" id="vkl3"/>
     <label for="vkl3">АКЦИОННЫЕ</label>
-    <div><table style="width: 1200px; margin: 0 auto">
-        <?php foreach($data['toys'] as $value => $toys) { ?>
-        <td style="float: left">
-            <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>" alt=""></a>
-            <br>
-            <?=$toys['name']?>
-            <br>
-            <?=$toys['price']?>
-        </td>
-        <?php } ?>
-    </table></div>
+
+    <div>
+        <table style="width: 1200px; margin: 0 auto">
+            <?php foreach($data['toys'] as $value => $toys) { ?>
+            <td style="float: left">
+                <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>" alt=""></a>
+                <br>
+                <?=$toys['name']?>
+                <br>
+                <?=$toys['price']?>
+            </td>
+            <?php } ?>
+        </table>
+    </div>
     <div>вторая вкладка</div>
     <div>третья вкладка</div>
 </div>

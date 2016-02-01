@@ -11,16 +11,12 @@ class CartsController extends Controller
 
 
     public function index()
-    {   //echo "<pre>";
-        //var_dump($_POST);  die;
-        //var_dump($_GET['name']);  die;
-        //print_r($_COOKIE['kol']); die;
+    {
         $action = isset($_GET['action']) ? $_GET['action'] : 'list';
         if ($action == 'add') {
             $name = $_GET['name'];
             $id = (int)$_GET['id'];
             $this->model->addProduct($id);
-            //var_dump($kol);  die;
             Router::redirect('/tovary/view/' . $name);
         } elseif ($action == 'delete') {
             $id = (int)$_GET['id'];
@@ -98,7 +94,11 @@ class CartsController extends Controller
 
         public function order(){
             $id_user = $_SESSION['id'];
-            $this->model->addIdOrder($id_user);
+            $price = null;
+            foreach ($_SESSION['tovar'] as $value){
+                $price = $price + $value['price'] * $value['kol'];
+            }
+            $this->model->addIdOrder($id_user, $price);
             $user_id = $this->model->showOrderId($id_user);
             $id_order = null;
             foreach ($user_id as $value) {
@@ -109,6 +109,7 @@ class CartsController extends Controller
                 array_push($id_tovar,(int)$value['id']);
             }
             $this->model->addOrder($id_order, $id_tovar);
+            $this->model->clear();
             //echo "<pre>";
             //var_dump($id_order);  die;
             //$tovar = array();

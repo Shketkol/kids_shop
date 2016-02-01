@@ -4,7 +4,7 @@ h1, h2, h3, a, p, li{
 }
 @import url('reset.css');
 body {
-    width: 1600px;
+    width: 1200px;
     margin: 0 auto;
 }
 /*------HEADER--------*/

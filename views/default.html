@@ -13,12 +13,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!-- FONTS -->
     <link rel="stylesheet" href="/webroot/css/style.css">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-    <script type="text/javascript" src="/webroot/js/jquery.orbit.js"></script>
-    <script type="text/javascript" src="/webroot/js/jquery.orbit.min.js"></script>
-    <script type="text/javascript" src="/webroot/js/jquery-1.4.1.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/webroot/js/index.js"></script>
     <script type="text/javascript">
         $(window).load(function() {
             $('#featured').orbit({
@@ -79,7 +75,7 @@
                 </li>
                     <?php if ($_SESSION['role'] == 'admin'){?>
                         <li>
-                            <a href="/admin">Настройка магазина</a>
+                            <a href="/admin/orders/index">Настройка магазина</a>
                         </li>
                     <?php } ?>
                 <li>

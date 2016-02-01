@@ -16,10 +16,11 @@ class Cart extends Model{
         $sql = "select * from users where id = '{$id_user}'";
         return $this->db->query($sql);
     }
-    public function addIdOrder($id_user){
+    public function addIdOrder($id_user, $price){
         $time = date("Y.m.d G:i:s", time());
         $sql = "insert into order_id
                 set id_user = '{$id_user}',
+                price = '{$price}',
                 time = '{$time}'
                 ";
         return $this->db->query($sql);
