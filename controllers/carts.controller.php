@@ -78,16 +78,25 @@ class CartsController extends Controller
             $kol = (int)$_GET['kol'];
             $id_tovar = (int)$_GET['id_tovar'];
 
-            foreach ($this->data['tovar'] as $value) {
+            foreach ($this->data['tovar'] as $key=>$value ) {
+                if($value['id']==$id_tovar){
+                    $this->data['tovar'][$key]['kol']=$kol;
+                }
+            }
+
+
+            /*foreach ($this->data['tovar'] as $value) {
                if($value['id'] == $id_tovar) {
                     $value['kol'] = $kol;
                     array_push($tovar1,$value);
                    } elseif($value['id'] != $id_tovar) {
                    array_push($tovar1,$value);
                }
-            }
-            $this->data['tovar'] = array();
-            $this->data['tovar'] = array_merge($this->data['tovar'],$tovar1);
+            }*/
+            //$this->data['tovar'] = array();
+            //$this->data['tovar'] = array_merge($this->data['tovar'],$tovar1);
+            echo "<pre>";
+            var_dump($this->data['tovar']);  die;
         }
         Session::set('tovar',$this->data['tovar']);
         }

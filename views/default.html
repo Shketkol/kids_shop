@@ -52,20 +52,48 @@
             </li>
         </ul>
     </div>
-    <nav>
-        <div class="nav_menu">
-            <ul>
+<ul id="menu">
                 <li<?php if( App::getRouter()->getController() == 'pages' ) {?><?php } ?>><a href="/pages/home">ГЛАВНАЯ</a></li>
-                <li><a href="">ДЕТСКАЯ ОДЕЖДА</a></li>
+                <li><a href="#" class="drop">ДЕТСКАЯ ОДЕЖДА</a><!-- Начало пунтка 4 колонки -->
+
+                    <div class="dropdown_4columns"><!-- Начало контейнера на 4 колонки -->
+                        <div class="col_1">
+
+                            <h3>Одежда для девочек</h3>
+                            <ul>
+                                <li><a href="#">ThemeForest</a></li>
+                                <li><a href="#">GraphicRiver</a></li>
+                                <li><a href="#">ActiveDen</a></li>
+                                <li><a href="#">VideoHive</a></li>
+                                <li><a href="#">3DOcean</a></li>
+                            </ul>
+
+                        </div>
+
+                        <div class="col_1">
+
+                            <h3>Одежда для мальчиков</h3>
+                            <ul>
+                                <li><a href="#">NetTuts</a></li>
+                                <li><a href="#">VectorTuts</a></li>
+                                <li><a href="#">PsdTuts</a></li>
+                                <li><a href="#">PhotoTuts</a></li>
+                                <li><a href="#">ActiveTuts</a></li>
+                            </ul>
+
+                        </div>
+
+                    </div><!-- Конец контейнера на 4 колонки -->
+
+                </li><!-- Конец пункта на 4 колонки -->
                 <li>
-                    <a href="/tovary/index">ИГРУШКИ</a></li>
+                    <a href="/tovary/toy">ИГРУШКИ</a></li>
                 <li><a href="">АКСЕССУАРЫ</a></li>
                 <li>
                     <a href='/carts/index'>Корзина</a>
                 </li>
             </ul>
-        </div>
-    </nav>
+
     <div class="box_nav">
         <div class="info">
             <ul>

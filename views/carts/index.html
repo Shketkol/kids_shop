@@ -43,7 +43,7 @@ $count = 0;
         <td>
             <form action="/carts/index" method="get" style="clear: both">
                 <input type="hidden" name="id_tovar" value="<?=$tovar['id']?>"/>
-                <input type="number" id="kol" name="kol" step="1" style="width: 50px" value="1">
+                <input type="number" id="kol" name="kol" step="1" style="width: 50px" value="<?= $tovar['kol'] ?>">
                 <input type="submit" value="Пересчитать">
             </form>
         </td>
