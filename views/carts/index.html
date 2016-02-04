@@ -6,6 +6,7 @@
 
     });
 </script>
+
 <h3>Моя корзина</h3>
 <?php if (isset($_SESSION['name'])){
 $count = 0;
@@ -30,8 +31,8 @@ $count = 0;
     </tr>
 </table>
 <?php if (isset($data['tovar'])){
-    foreach ($data['tovar'] as $tovar) {
-    $count+=$tovar['price'];?>
+    foreach ($_SESSION['tovar'] as $tovar) {
+    $count= $count + $tovar['kol']* $tovar['price'];?>
 <table style="width: 1200px">
     <tr>
         <td>

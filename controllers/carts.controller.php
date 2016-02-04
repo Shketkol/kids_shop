@@ -65,6 +65,9 @@ class CartsController extends Controller
          }*/
         //echo "<pre>";
         //var_dump( $this->data['tovar']);  die;
+        if(isset($_SESSION['tovar'])){
+            $this->data['tovar'] = Session::get('tovar');}
+        else {
         $key = array();
         foreach ($tovar as $value) {
             $value['kol'] = 1;
@@ -72,9 +75,14 @@ class CartsController extends Controller
         }
         $tovar = array();
         $this->data['tovar'] = array_merge($tovar, $key);
-        $tovar1 = array();
+        }
+        Session::set('tovar',$this->data['tovar']);
+
+
+        //$tovar1 = array();
 
         if ($_GET) {
+            //Session::set('tovar',$this->data['tovar']);
             $kol = (int)$_GET['kol'];
             $id_tovar = (int)$_GET['id_tovar'];
 
@@ -82,7 +90,11 @@ class CartsController extends Controller
                 if($value['id']==$id_tovar){
                     $this->data['tovar'][$key]['kol']=$kol;
                 }
+
             }
+            Session::set('tovar',$this->data['tovar']);
+           // echo "<pre>";
+           // print_r(Session::get('tovar'));  die;
 
 
             /*foreach ($this->data['tovar'] as $value) {
@@ -95,8 +107,8 @@ class CartsController extends Controller
             }*/
             //$this->data['tovar'] = array();
             //$this->data['tovar'] = array_merge($this->data['tovar'],$tovar1);
-            echo "<pre>";
-            var_dump($this->data['tovar']);  die;
+            //echo "<pre>";
+            //var_dump($this->data['tovar']);  die;
         }
         Session::set('tovar',$this->data['tovar']);
         }
