@@ -60,19 +60,10 @@
                         <h4 style="font-size: 20pt"><strong> <?=$data['tovar']['price']?> грн</strong></h4>
                     </div>
 
-                    <!--   <a href='#' id='add-{<?=$data['tovar']['id']?>}'>Добавить в корзину</a>-->
-                    <form action="/carts/index" method="get" style="clear: both">
-                        <input type="hidden" name="action" value="add">
-                        <input type="hidden" name="id" value="<?=$data['tovar']['id']?>">
-                        <input type="hidden" name="name" value="<?=$data['tovar']['name']?>">
-                        Количество:<input type="number" id="kol" name="kol" step="1">
-                        <input type="submit" value="Добавить в корзину">
-                    </form>
-
-                    <!--     <a href="/carts/index?action=add&id=<?=$data['tovar']['id']?>&name=<?=$data['tovar']['name']?>">Добавить в корзину</a>
+                    <a href="/carts/index?action=add&id=<?=$data['tovar']['id']?>&name=<?=$data['tovar']['name']?>">Добавить в корзину</a>
 
                    <br>
-                   <a href="/carts/index?action=add&id=<?=$data['tovar']['id']?>&name=<?=$data['tovar']['name']?>">Добавить в корзину</a>-->
+                    <!-- <a href="/carts/index?action=add&id=<?=$data['tovar']['id']?>&name=<?=$data['tovar']['name']?>">Добавить в корзину</a>-->
 
                </div>
                 <div class="korpus" style="clear: both; padding-top: 20px; width: 900px">

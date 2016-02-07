@@ -7,8 +7,9 @@ class PagesController extends Controller{
         $this->model = new Page();
     }
 
-    public function home(){
-        $this->data['toys'] =  $this->model->getList();
+    public function home()
+    {
+        $this->data['toys'] = $this->model->getList();
     }
 
     public function admin_index(){

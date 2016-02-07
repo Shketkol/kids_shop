@@ -16,22 +16,26 @@ class Cart extends Model{
         $sql = "select * from users where id = '{$id_user}'";
         return $this->db->query($sql);
     }
-    public function addIdOrder($id_user, $price){
+    public function addIdOrder($id_user, $price, $data){
+        $price = null;
+        foreach ($data as $value){
+            $price = $price + ($value['price'] * $value['kol']);
+        }
         $time = date("Y.m.d G:i:s", time());
         $sql = "insert into order_id
                 set id_user = '{$id_user}',
-                price = '{$price}',
-                time = '{$time}'
+                time = '{$time}',
+                `price` = '{$price}'
                 ";
         return $this->db->query($sql);
     }
     public function showOrderId($id_user){
-        $sql = "select * from shop.order_id where id_user = '{$id_user}' order by time desc limit 1";
+        $sql = "select * from order_id where id_user = '{$id_user}' order by time desc limit 1";
         return $this->db->query($sql);
     }
     public function addOrder($id_order, $id_tovar){
         foreach ($id_tovar as $value){
-        $sql = "insert into orders
+            $sql = "insert into orders
                 set id_orders = '{$id_order}',
                 id_tovar = '{$value}'
                 ";
@@ -43,11 +47,13 @@ class Cart extends Model{
      */
     function __construct()
     {
+
         parent::__construct();
         $this->products = Cookie::get('tovary') == null ?
             array()
             :
             unserialize(Cookie::get('tovary'));
+
         /*$this->kol = Cookie::get('kol') == null ?
             array()
             :
@@ -71,14 +77,13 @@ class Cart extends Model{
      *
      * @param $id
      */
-    public function addProduct($id, $kol)
+    public function addProduct($id)
     {
-        $id = (int)$id;
-        $kol = (int)$kol;
-        if (!in_array($id, $this->products)) {
-            array_push($this->products, $id, $kol);
-        }
 
+        $id = (int)$id;
+        if (!in_array($id, $this->products)) {
+            array_push($this->products, $id);
+        }
         Cookie::set('tovary', serialize($this->products));
         //echo "<pre>";
         //print_r(unserialize($_COOKIE['tovary'])); die;

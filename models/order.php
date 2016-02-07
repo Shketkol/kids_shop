@@ -10,6 +10,7 @@ class Order extends Model {
                 o.price
                 from shop.order_id o
                 join users u on o.id_user = u.id
+                order by o.`time` DESC
                 ";
         return $this->db->query($sql);
     }
