@@ -1,0 +1,39 @@
+<div class="content">
+    <table style="width: 1100px; margin: 0 auto">
+        <tr style="border: 1px solid black">
+            <td>
+                ID
+            </td>
+            <td>
+                Статус заказа
+            </td>
+            <td>
+                Дата и время
+            </td>
+            <td>
+                Заказчик
+            </td>
+            <td>
+                Цена заказа
+            </td>
+            <?php foreach($data['history'] as $order) { ?>
+        <tr style="border: 1px solid black">
+            <td>
+                <?=$order['id_order']?>
+            </td>
+            <td>
+                <?=$order['status']?>
+            </td>
+            <td>
+                <?=$order['time']?>
+            </td>
+            <td>
+                <?=$order['name']?>
+            </td>
+            <td>
+                <?=$order['price']?>
+            </td>
+            <?php } ?>
+    </table>
+
+</div>

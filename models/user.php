@@ -23,9 +23,10 @@ class User extends Model {
         return false;
     }
 
-    public function register($data){
-        if (!isset($data['name'])||!isset($data['l_name'])||!isset($data['password'])){
-        return false;
+    public function register($data)
+    {
+        if (!isset($data['name']) || !isset($data['l_name']) || !isset($data['password'])) {
+            return false;
         }
         $name = $this->db->escape($data['name']);
         $l_name = $this->db->escape($data['l_name']);
@@ -38,12 +39,12 @@ class User extends Model {
         $house = $this->db->escape($data['house']);
         $flat = $this->db->escape($data['flat']);
 
-        if ($this->getByName($name, $l_name)){
+        if ($this->getByName($name, $l_name)) {
             return false;
         }
 
         $password = $data['password'];
-        $hash = md5(Config::get('salt').$password);
+        $hash = md5(Config::get('salt') . $password);
 
         $sql = "insert into users
                 set name = '{$name}',
@@ -60,10 +61,23 @@ class User extends Model {
                 role = 'user'
                 ";
 //echo $sql; die;
-              if($this->db->query($sql)){
+        if ($this->db->query($sql)) {
             return $this->db->insertId();
         }
         return false;
+    }
+
+        public function getListPost(){
+            $sql = "select * from posts where 1 limit 6";
+            return $this->db->query($sql);
+        }
+
+
+    // ÌÅÒÎÄ² ÄËß ÀÄÌÈÍÀ
+
+    public function getListUser(){
+        $sql = "select * from users where 1";
+       return $this->db->query($sql);
     }
 
 }

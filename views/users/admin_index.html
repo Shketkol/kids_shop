@@ -1,0 +1,34 @@
+<div class="content">
+        <table style="width: 1200px; margin: 0 auto">
+        <tr style="border: 1px solid black">
+            <td>
+                Имя
+            </td>
+            <td>
+                Фамилия
+            </td>
+            <td>
+                E-mail
+            </td>
+            <td>
+                Телефон
+            </td>
+        </tr>
+        <?php foreach($data['users'] as $user) { ?>
+        <tr style="border: 1px solid black; cursor: pointer">
+            <td>
+             <?=$user['name']?>
+            </td>
+            <td>
+                <?=$user['l_name']?>
+            </td>
+            <td>
+                <?=$user['mail']?>
+            </td>
+            <td>
+                <?=$user['phone']?>
+            </td>
+        <?php } ?>
+    </table>
+
+</div>

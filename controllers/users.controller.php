@@ -24,6 +24,7 @@ class UsersController extends Controller
                 die('ошибка');
             }
         }
+        $this->data['posts'] = $this->model->getListPost();
     }
 
     public function login()
@@ -39,13 +40,9 @@ class UsersController extends Controller
             }
             Router::redirect('/pages/home');
         }
+        $this->data['posts'] = $this->model->getListPost();
     }
 
-    public function admin_logout()
-    {
-        Session::destroy();
-        Router::redirect('/ad_style.css/');
-    }
 
     public function logout()
     {
@@ -76,9 +73,9 @@ class UsersController extends Controller
 
     }
 
-    public function listmen(){
-        $user = $_SESSION['department'];
-        $this->data['users'] = $this->model->getList($user);
+    public function admin_index(){
+        $this->data['users'] = $this->model->getListUser();
+
     }
 
 

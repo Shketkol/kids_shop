@@ -25,7 +25,8 @@ class Cart extends Model{
         $sql = "insert into order_id
                 set id_user = '{$id_user}',
                 time = '{$time}',
-                `price` = '{$price}'
+                `price` = '{$price}',
+                status = 'new'
                 ";
         return $this->db->query($sql);
     }
@@ -33,11 +34,12 @@ class Cart extends Model{
         $sql = "select * from order_id where id_user = '{$id_user}' order by time desc limit 1";
         return $this->db->query($sql);
     }
-    public function addOrder($id_order, $id_tovar){
-        foreach ($id_tovar as $value){
+    public function addOrder($id_order, $data){
+        foreach ($data as $key=>$value){
             $sql = "insert into orders
                 set id_orders = '{$id_order}',
-                id_tovar = '{$value}'
+                id_tovar = '{$value['id']}',
+                `count` = '{$value['kol']}'
                 ";
         $this->db->query($sql);
         }

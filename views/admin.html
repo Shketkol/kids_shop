@@ -19,6 +19,7 @@
     <script type="text/javascript" src="/webroot/js/jquery-1.4.1.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="/views/pages/ckeditor/ckeditor.js"></script>
 
 </head>
 <body>
@@ -36,8 +37,15 @@
     </div>
     <div class="nav">
         <ul id="menu">
-            <li>
-                <a href="/admin/orders/index">Заказы</a>
+            <li><a href="#" class="drop">Заказы</a>
+                <div class="dropdown_1column">
+                    <div class="col_1">
+                        <ul class="simple">
+                            <li><a href="/admin/orders/index">Новые заказы</a></li>
+                            <li><a href="/admin/orders/history">История заказов</a></li>
+                        </ul>
+                    </div>
+                </div>
             </li>
             <li><a href="#" class="drop">Каталог товаров</a>
                 <div class="dropdown_1column">
@@ -54,7 +62,7 @@
                 <div class="dropdown_1column">
                     <div class="col_1">
                         <ul class="simple">
-                            <li><a href="#">Список пользователей</a></li>
+                            <li><a href="/admin/users/index">Список пользователей</a></li>
                             <li><a href="#">Коментарии</a></li>
                         </ul>
                     </div>
@@ -64,7 +72,7 @@
                 <div class="dropdown_1column">
                     <div class="col_1">
                         <ul class="simple">
-                            <li><a href="#">Список страниц</a></li>
+                            <li><a href="/admin/pages/index">Список страниц</a></li>
                             <li><a href="#">Создание новой страницы</a></li>
                         </ul>
                     </div>

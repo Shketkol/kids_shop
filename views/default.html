@@ -60,6 +60,7 @@
                         <div class="col_1">
 
                             <h3>Одежда для девочек</h3>
+
                             <ul>
                                 <li><a href="#">ThemeForest</a></li>
                                 <li><a href="#">GraphicRiver</a></li>
@@ -217,7 +218,23 @@
         </div>
         </div>
     </div>
+    <script>
+    function sendData(){
+        var val = $('select[name="statul"]').val();
+        $.ajax({
+            url: "default.html",
+            type: "POST",
+            data: val,
+            cache: false,
+            success: function(response){
+                //code
+            }
+        });
+    }
+</script>
+
 </footer>
+
 <script type="text/javascript">
     $(function() {
         $('#ei-slider').eislideshow({

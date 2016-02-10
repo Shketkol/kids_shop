@@ -11,6 +11,9 @@ class PagesController extends Controller{
     {
         $this->data['toys'] = $this->model->getList();
     }
+    public function index(){
+
+    }
 
     public function admin_index(){
 

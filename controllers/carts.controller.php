@@ -110,11 +110,7 @@ class CartsController extends Controller
         foreach ($user_id as $value) {
             $id_order = (int)array_shift($value);
         }
-        $id_tovar = array();
-        foreach ($_SESSION['tovar'] as $value) {
-            array_push($id_tovar, (int)$value['id']);
-        }
-        $this->model->addOrder($id_order, $id_tovar);
+        $this->model->addOrder($id_order, $_SESSION['tovar']);
         $this->model->clear();
     }
 

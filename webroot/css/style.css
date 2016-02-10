@@ -180,7 +180,6 @@ nav {
 /*------SIDEBAR--------*/
 
 .slider {
-    position:relative;
     width: 1200px;
     height: 450px;
     margin: 0 auto;
@@ -188,9 +187,6 @@ nav {
 }
 
 .slider img {
-    position: absolute;
-    top:0px;
-    left:0px;
     display: none;
     background-color: #f3f4ef;
     border: 13px solid #dedede;

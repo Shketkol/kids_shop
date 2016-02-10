@@ -1,3 +1,21 @@
+<script language="JavaScript" type="text/javascript">
+    /*<![CDATA[*/
+    var s=[],s_timer=[];
+    function show(id,h,spd)
+    { s[id]= s[id]==spd? -spd : spd;
+        s_timer[id]=setTimeout(function() {
+            var obj=document.getElementById(id);
+            if(obj.offsetHeight+s[id]>=h){obj.style.height=h+"px";obj.style.overflow="auto";}
+            else if(obj.offsetHeight+s[id]<=0){obj.style.height=0+"px";obj.style.display="none";}
+            else {obj.style.height=(obj.offsetHeight+s[id])+"px";
+                obj.style.overflow="hidden";
+                obj.style.display="block";
+                setTimeout(arguments.callee, 10);
+            }
+        }, 10);
+    }
+    /*]]>*/
+</script>
 <div class="content">
     <table style="width: 1100px; margin: 0 auto">
         <tr style="border: 1px solid black">
@@ -17,12 +35,19 @@
                 Цена заказа
             </td>
             <?php foreach($data['orders'] as $order) { ?>
-        <tr style="border: 1px solid black">
+        <tr style="border: black solid 1px">
             <td>
                 <?=$order['id_order']?>
             </td>
             <td>
-                <?=$order['status']?>
+                <form action="" method="get">
+                    <input type="hidden" name="id" value="<?=$order['id_order']?>">
+                    <select name="status">
+                        <option value="new">Новый</option>
+                        <option value="treated">Обработан</option>
+                    </select>
+                    <input type="submit" value="Обновить">
+                </form>
             </td>
             <td>
                 <?=$order['time']?>
@@ -32,8 +57,36 @@
             </td>
             <td>
                 <?=$order['price']?>
+                <span id="ajax_test">Click me!</span> <br/>
+                <img src="http://www.iconsearch.ru/uploads/icons/humano2/128x128/gnome-help.png" title="xfgjxfh" width="15px" height="15px">
+
+                <form action=""method="post">
+                    <input type="hidden" name="id" value="<?=$order['id_order']?>">
+                    <input type="submit" value="Показать">
+                </form>
             </td>
+
             <?php } ?>
+    </div>
     </table>
+    <div id=hidden_2>
+        <?php foreach($_SESSION['showTovar'] as $tovar) { ?>
+        <p><?=$tovar['article']?>  <img src="<?=$tovar['url_img']?>" width="20px" height="25px"> <?=$tovar['name']?> <?=$tovar['count']?>*<?=$tovar['price']?></p>
+        <?php } ?>
 
 </div>
+<script>
+
+    $('#ajax_test').click(function(){
+
+        $.ajax({
+            url: 'spript.php',
+            type: "POST",
+            data: data,
+            success: success,
+            dataType: dataType
+        });
+
+    });
+
+</script>
