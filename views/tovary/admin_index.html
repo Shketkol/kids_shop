@@ -1,9 +1,41 @@
-<div class="content">
-    <div class="new_tovar">
-   <a href="/admin/tovary/add/"><button class="btn btn-sm btn-success">Добавить товар</button></a>
-    </div>
-    <table style="width: 1200px; margin: 0 auto">
-        <tr style="border: 1px solid black">
+<!-- Add jQuery library -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- Add mousewheel plugin (this is optional) -->
+<script type="text/javascript" src="/webroot/js/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="/webroot/js/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen"/>
+<script type="text/javascript" src="/webroot/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet" href="/webroot/js/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css"
+      media="screen"/>
+<script type="text/javascript" src="/webroot/js/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="/webroot/js/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+<link rel="stylesheet" href="/webroot/js/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css"
+      media="screen"/>
+<script type="text/javascript" src="/webroot/js/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>
+    $(document).ready(function () {
+        $("a.iframe").fancybox({
+            "frameWidth": 5,
+            "frameHeight": 500
+        });
+    });
+</script>
+
+<button class="btn"><a class="iframe" href="#inline1">Добавить товар</a></button>
+<div class="content"></br>
+    <table>
+        <tr>
+            <td>
+                ID
+            </td>
+            <td>
+                Артикул
+            </td>
             <td>
                 Картинка
             </td>
@@ -23,11 +55,32 @@
                 Цена
             </td>
             <td>
-                Опции
+                Пол
+            </td>
+            <td>
+                Возраст
+            </td>
+            <td>
+                Акция
+            </td>
+            <td>
+                Категория
+            </td>
+            <td>
+                Тип
+            </td>
+            <td>
+                Редактировать
             </td>
         </tr>
         <?php foreach($data['toys'] as $value => $toys) { ?>
         <tr style="border: 1px solid black; cursor: pointer">
+            <td>
+                <?=$toys['id']?>
+            </td>
+            <td>
+                <?=$toys['article']?>
+            </td>
             <td>
                 <img src="<?php echo $toys['url_img']?>" width="100px" height="115px">
             </td>
@@ -51,11 +104,114 @@
                 <?=$toys['price']?>
             </td>
             <td>
-                <a href="/admin/tovary/edit/<?=$toys['id']?>"><button class="btn btn-sm btn-primary">edit</button></a>
-                <a href="/admin/tovary/delete/<?=$toys['id']?>" onclick="return confirmDelete();"><button class="btn btn-sm btn-warning">delete</button></a>
+                <?=$toys['person']?>
+            </td>
+            <td>
+                <?=$toys['year']?>
+            </td>
+            <td>
+                <?php if ($toys['sklad'] == 1){?>
+                <h4>Акционный</h4>
+                <?php } else {?>
+                <h4>Нет акции</h4>
+                <?php }?>
+            </td>
+            <td>
+                <?=$toys['id_type']?>
+            </td>
+            <td>
+                <?=$toys['id_type']?>
+            </td>
+            <td>
+                <a href="/admin/tovary/edit/<?=$toys['id']?>">
+                    <button class="btn btn-sm btn-primary">edit</button>
+                </a>
+                <a href="/admin/tovary/delete/<?=$toys['id']?>" onclick="return confirmDelete();">
+                    <button class="btn btn-sm btn-warning">delete</button>
+                </a>
             </td>
         </tr>
         <?php } ?>
     </table>
 
+</div>
+
+<div style="display: none;">
+    <div id="inline1" style="width:870px;height:550px">
+        <h3>Добавить товар</h3><br/>
+
+        <form method="post" action="">
+            <div class="l_block" style="width:250px; float: left">
+                <div class="form-group">
+                    <label for="article">Артикул</label>
+                    <input type="text" id="article" name="article" value="" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="name">Название</label>
+                    <input type="text" id="name" name="name" value="" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="price">Цена</label>
+                    <input type="text" id="price" name="price" value="" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="url_img">Сылка на рисунок</label>
+                    <input type="text" id="url_img" name="url_img" value="" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="brend">Бренд</label>
+                    <input type="text" id="brend" name="brend" value="" class="form-control"/>
+                </div>
+            </div>
+            <div class="r_block" style="width: 600px; float: right">
+                <div class="form-group">
+                    <label for="description">Описание</label></br>
+                    <textarea name="description" id="description" cols="80" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="category">Категория</label>
+                    <select name='category' id="category" class="category">
+                        <option value="0">Выберите категорию</option>
+                        <?php foreach ($data['category'] as $value) { ?>
+                        <option value="<?=$value['id']?>"><?=$value['name']?></option>
+                        <?php } ?>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="person">Пол</label>
+                    <select name='person' id="person">
+                        <option value='Мальчик'>Мальчик</option>
+                        <option value='Девочка'>Девочка</option>
+                        <option value='Универсальный'>Универсальный</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="year">Возраст</label>
+                    <select name='year' id="year">
+                        <option value='до 1 года'>до 1 года</option>
+                        <option value='1-2'>1-2</option>
+                        <option value='2-3'>2-3</option>
+                        <option value='3-5'>3-5</option>
+                        <option value='4-7'>5-7</option>
+                        <option value='7-1'>7-11</option>
+                        <option value='11-16'>11-16</option>
+                        <option value='16+'>16+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sale">Акция</label>
+                    <input type='radio' name='sale' value='1' id="sale"> <br>
+                    <label for="sklad">Нет на складе</label>
+                    <input type='radio' name='sklad' value='1' id="sklad"> <br>
+                </div>
+            </div>
+            <div class="center" style="clear: both">
+                <input type="submit" class="btn btn-success" value="Добавить товар"/>
+            </div>
+
+
+            </div>
+        </form>
+    </div>
 </div>

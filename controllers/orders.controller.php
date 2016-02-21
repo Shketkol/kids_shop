@@ -10,24 +10,31 @@ class OrdersController extends Controller {
 
     public function admin_index() {
         $this->data['orders'] = $this->model->getList();
-        if($_GET) {
-            $status = $_GET['status'];
-            $id = $_GET['id'];
+        if($_POST) {
+            $status = $_POST['status'];
+            $id = $_POST['id'];
             //print_r($_GET); die;
             $this->model->update($id, $status);
 
 
         }
-        if($_POST) {
-            $id = $_POST['id'];
+        if(isset($_GET['id_order'])) {
+            $id = $_GET['id_order'];
             $tovar = $this->model->showTovar($id);
             Session::set('showTovar',$tovar);
+
             //print_r($this->data['tovar']);die;
         }
+    }
 
+    public function admin_show(){
+        if(isset($_GET['id_order'])) {
+            $id = $_GET['id_order'];
+            $tovar = $this->model->showTovar($id);
+            Session::set('showTovar',$tovar);
 
-
-
+            //print_r($this->data['tovar']);die;
+        }
     }
 
     public function admin_history(){

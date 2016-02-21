@@ -21,10 +21,9 @@
     <label for="vkl2">ПОСЛЕДНИЕ</label>
     <input type="radio" name="odin" id="vkl3"/>
     <label for="vkl3">АКЦИОННЫЕ</label>
-
     <div>
-        <table style="width: 1200px; margin: 0 auto">
-            <?php foreach($data['toys'] as $value => $toys) { ?>
+        <table style="width: 1100px; margin: 0 auto">
+            <?php foreach($data['toys_popular'] as $value => $toys) { ?>
             <td style="float: left">
                 <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>" alt=""></a>
                 <br>
@@ -35,7 +34,31 @@
             <?php } ?>
         </table>
     </div>
-    <div>вторая вкладка</div>
-    <div>третья вкладка</div>
+    <div>
+        <table style="width: 1100px; margin: 0 auto">
+            <?php foreach($data['toys_late'] as $value => $toys) { ?>
+            <td style="float: left">
+                <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>" alt=""></a>
+                <br>
+                <?=$toys['name']?>
+                <br>
+                <?=$toys['price']?>
+            </td>
+            <?php } ?>
+        </table>
+    </div>
+    <div>
+        <table style="width: 1100px; margin: 0 auto">
+            <?php foreach($data['toys_sale'] as $value => $toys) { ?>
+            <td style="float: left">
+                <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>" alt=""></a>
+                <br>
+                <?=$toys['name']?>
+                <br>
+                <?=$toys['price']?>
+            </td>
+            <?php } ?>
+        </table>
+    </div>
 </div>
 

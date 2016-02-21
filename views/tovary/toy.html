@@ -1,19 +1,12 @@
-    <meta charset="UTF-8">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
 <div class="content">
+
     <div class="left_block">
-        <h3> Фильтр </h3>
-        <ul>
-            <li>
-                <a href="/tovary/index/toy/price">Сортировка по цене</a>
-            </li>
-            <li>
-                <a href="/tovary/index/toy/name">Сортировка по имени</a>
-            </li>
-            <li>
-                <a href="users/login">Сортировка по возрасту</a>
-            </li>
-        </ul>
-        <div class="left_banner">
+        <div class="left_banner" style="padding-top: 20px">
             <img src="/webroot/img/left-banner-255x339.png" alt="">
         </div>
         <div class="latest_tovar">
@@ -21,32 +14,73 @@
                 <?php foreach($data['latest tovar'] as $value => $toys) { ?>
                 <tr>
                     <th>
-                        <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>" height="115px" width="115px"></a>
+                        <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>"
+                                                                       height="115px" width="115px"></a>
                     </th>
                     <th>
                         <?=$toys['name']?>
                         <br>
-                        <strong style="font-size: 14pt"><?=$toys['price']?>грн</strong>
+                        <strong style="font-size: 14pt"><?=$toys['price']?>грн</strong></br>
+                        <div class="card"><a href="/tovary/view/<?=$toys['name']?>">В корзину</a></div>
                     </th>
                 </tr>
                 <?php } ?>
             </table>
         </div>
     </div>
+
     <div class="right_block">
-        <h3>Игрушки для детей</h3><br/>
         <?php foreach($data['toys'] as $value => $toys) { ?>
+        <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                Цена
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/price0-9">Цена 0-9</a></li>
+                <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/price9-0">Цена 9-0</a></li>
+            </ul>
+            <div class="btn-group">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Пол
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                    <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/boy">Мальчик</a></li>
+                    <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/girl">Девочка</a></li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Возраст
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                    <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/year1">До 1 года</a></li>
+                    <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/year1-2">1-2</a></li>
+                    <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/year2-3">2-3</a></li>
+                    <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/year3-5">3-5</a></li>
+                    <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/year5-7">5-7</a></li>
+                    <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/year7-11">7-11</a></li>
+                    <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/year11-16">11-16</a></li>
+                    <li><a tabindex="-1" href="/tovary/toy/<?=$toys['name_category']?>/year16">16+</a></li>
+                </ul>
+            </div>
+        </div>
+        <h3>Игрушки для детей</h3><br/>
+
         <table style="float: left">
             <td style="float: left">
 
-                    <div class="image_title">
-                        <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>" alt=""></a>
-                        <div class="title">
-                            <ul>
-                                <p>Добавить в корзину</p>
-                            </ul>
-                        </div>
+                <div class="image_title">
+                    <a href="/tovary/view/<?=$toys['name']?>"><img src="<?php echo $toys['url_img']?>" alt=""></a>
+
+                    <div class="title">
+                        <ul>
+                            <p>Добавить в корзину</p>
+                        </ul>
                     </div>
+                </div>
 
 
                 <br>

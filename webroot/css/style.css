@@ -107,7 +107,7 @@ nav {
 }
 
 
-.dropdown_4columns {width: 300px;}
+.dropdown_4columns {width: 600px;}
 
 
 
@@ -125,7 +125,7 @@ nav {
     margin-left: 5px;
     margin-right: 5px;
 }
-.col_1 {width:130px;}
+.col_1 {width:200px;}
 
 
 
@@ -133,7 +133,7 @@ nav {
 #menu p, #menu h2, #menu h3, #menu ul li {
     font-family:Arial, Helvetica, sans-serif;
     line-height:21px;
-    font-size:12px;
+    font-size:6px;
     text-align:left;
     text-shadow: 1px 1px 1px #FFFFFF;
 }
@@ -175,15 +175,14 @@ nav {
 }
 .right_block {
     float: right;
-    width: 900px;
+    width: 850px;
 }
 /*------SIDEBAR--------*/
 
 .slider {
-    width: 1200px;
+    width: 1100px;
     height: 450px;
     margin: 0 auto;
-
 }
 
 .slider img {
@@ -278,7 +277,9 @@ nav {
 
 /*------tab-content--------*/
 
-.korpus > div, .korpus > input { display: none; }
+.korpus > div, .korpus > input {
+    display: none;
+}
 
 .korpus label {
     padding: 5px;
@@ -352,7 +353,8 @@ label:hover {
 footer {
     clear: both;
     margin: 0 auto;
-    width: 1200px;
+    width: 1000px;
+    padding-top: 50px;
 }
 .box_news ul {
     margin: 0 auto;
@@ -371,10 +373,6 @@ footer {
 .follow {
     color: white;
 }
-.news {
-    float: left;
-    width: 300px;
-}
 .information {
     float: left;
     width: 300px;
@@ -382,4 +380,39 @@ footer {
 .contact {
     float: left ;
     width: 300px;
+}
+
+.btn {
+    padding-top: 20px;
+}
+.dropdown-menu li {
+    width: 40px;
+}
+
+.card {
+    display: block;
+    background-color: #ec7b60;
+    border-radius: 5px;
+    text-decoration: none;
+    width: 80px;
+    height: 25px;
+    bottom: 1px;
+}
+.card :hover{
+    background-color: #494949;
+    border-radius: 5px;
+}
+.card a {
+    display: block;
+    width: 80px;
+    height: 25px;
+    bottom: 1px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 8px;
+    padding-top: 5px;
+    color: white;
+    font-family: Arial;
+    font-size: 8pt;
 }

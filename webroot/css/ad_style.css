@@ -220,4 +220,24 @@ li a {
     margin-bottom: 20px;
 }
 
+/* ƒÀﬂ “¿¡À»÷€ Œ“Œ¡–¿∆≈Õ»ﬂ */
+.content {
+    width: 1200px;
+    margin: 0 auto;
+}
+.container {
+    margin: 0 auto;
+    padding-top: 20px;
+}
+table {
+    width: 1200px;
+    margin: 0 auto;
+}
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+tr .title{
+    font-size: 16pt;
+}
 

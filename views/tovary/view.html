@@ -1,19 +1,6 @@
        <meta charset="UTF-8">
         <div class="content">
             <div class="left_block">
-                <h4> Категории </h4>
-                <ul>
-                    <li>
-                        <a href="users/login">Десткая одежда</a>
-                    </li>
-                    <li>
-                        <a href="users/register">Игрушки</a>
-                    </li>
-                    <li>
-                        <a href="users/login">Средства гигиены</a>
-                    </li>
-                </ul>
-
                 <div class="latest_tovar">
                     <h4> Новые товары </h4>
                     <table>
@@ -26,11 +13,12 @@
                                 <?=$toys['name']?>
                                 <br>
                                 <strong style="font-size: 14pt"><?=$toys['price']?>грн</strong>
+                                <div class="card"><a href="/tovary/view/<?=$toys['name']?>">В корзину</a></div>
+
                             </th>
                         </tr>
                         <?php } ?>
                     </table>
-                    <h4> Акциионые  </h4>
                 </div>
 
             </div>

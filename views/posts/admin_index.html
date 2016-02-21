@@ -1,40 +1,37 @@
-<div class="content">
-        <table>
+    <table>
         <tr >
             <td class="title">
                 ID
             </td>
             <td class="title">
-                Имя
+                Название
             </td>
             <td class="title">
-                Фамилия
+                Краткое описание
             </td>
             <td class="title">
-                E-mail
+                Сылка на картинку
             </td>
             <td class="title">
-                Телефон
+                Дата
             </td>
         </tr>
-        <?php foreach($data['users'] as $user) { ?>
+        <?php foreach($data['posts'] as $post) { ?>
         <tr>
             <td>
-                <?=$user['id']?>
+                <?=$post['id']?>
             </td>
             <td>
-             <?=$user['name']?>
+                <?=$post['name']?>
             </td>
             <td>
-                <?=$user['l_name']?>
+                <?=$post['desc']?>
             </td>
             <td>
-                <?=$user['mail']?>
+                <?=$post['url_img']?>
             </td>
             <td>
-                <?=$user['phone']?>
+                <?=$post['date']?>
             </td>
-        <?php } ?>
+            <?php } ?>
     </table>
-
-</div>

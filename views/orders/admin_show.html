@@ -1,0 +1,7 @@
+<?php if(isset($_SESSION['showTovar'])) { ?>
+<div id=hidden_2>
+    <?php foreach($_SESSION['showTovar'] as $tovar) { ?>
+    <p><?=$tovar['article']?>  <img src="<?=$tovar['url_img']?>" width="20px" height="25px"> <?=$tovar['name']?> <?=$tovar['count']?>*<?=$tovar['price']?></p>
+    <?php } ?>
+</div>
+<?php } ?>

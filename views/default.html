@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <title>Детский магазин</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
     <!-- FONTS -->
     <link rel="stylesheet" href="/webroot/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="/webroot/js/index.js"></script>
     <script type="text/javascript">
-        $(window).load(function() {
+        $(window).load(function () {
             $('#featured').orbit({
                 'bullets': true,
-                'timer' : true,
-                'animation' : 'horizontal-slide'
+                'timer': true,
+                'animation': 'horizontal-slide'
             });
         });
     </script>
@@ -30,7 +34,7 @@
     <div class="top_menu">
         <ul>
             <li class="logo">
-                <img src="/webroot/img/logo.png" alt="" >
+                <img src="/webroot/img/logo.png" alt="">
             </li>
             <li class="item">
                 <div class="img">
@@ -38,6 +42,7 @@
                 </div>
                 <div class="text">
                     <p>Бесплатная доставка</p>
+
                     <p>tehteh</p>
                 </div>
             </li>
@@ -47,66 +52,106 @@
                 </div>
                 <div class="text">
                     <p>+38(096)333-33-33</p>
+
                     <p>regte</p>
                 </div>
             </li>
         </ul>
     </div>
-<ul id="menu">
-                <li<?php if( App::getRouter()->getController() == 'pages' ) {?><?php } ?>><a href="/pages/home">ГЛАВНАЯ</a></li>
-                <li><a href="#" class="drop">ДЕТСКАЯ ОДЕЖДА</a><!-- Начало пунтка 4 колонки -->
+    <ul id="menu">
+        <li
+        <?php if( App::getRouter()->getController() == 'pages' ) {?><?php } ?>><a href="/pages/home">ГЛАВНАЯ</a></li>
+        <li><a href="#" class="drop">ИГРЫ</a><!-- Начало пунтка 4 колонки -->
 
-                    <div class="dropdown_4columns"><!-- Начало контейнера на 4 колонки -->
-                        <div class="col_1">
+            <div class="dropdown_4columns"><!-- Начало контейнера на 4 колонки -->
+                <div class="col_1">
 
-                            <h3>Одежда для девочек</h3>
+                    <h3>Настольные игры</h3>
 
-                            <ul>
-                                <li><a href="#">ThemeForest</a></li>
-                                <li><a href="#">GraphicRiver</a></li>
-                                <li><a href="#">ActiveDen</a></li>
-                                <li><a href="#">VideoHive</a></li>
-                                <li><a href="#">3DOcean</a></li>
-                            </ul>
+                    <ul>
+                        <li><a href="/tovary/toy/golovolomki">Головоломки</a></li>
+                        <li><a href="/tovary/toy/domino">Домино</a></li>
+                        <li><a href="/tovary/toy/loto">Лото</a></li>
+                        <li><a href="/tovary/toy/pazli">Пазлы</a></li>
+                    </ul>
 
-                        </div>
+                </div>
 
-                        <div class="col_1">
+                <div class="col_1">
 
-                            <h3>Одежда для мальчиков</h3>
-                            <ul>
-                                <li><a href="#">NetTuts</a></li>
-                                <li><a href="#">VectorTuts</a></li>
-                                <li><a href="#">PsdTuts</a></li>
-                                <li><a href="#">PhotoTuts</a></li>
-                                <li><a href="#">ActiveTuts</a></li>
-                            </ul>
+                    <h3>Игровые наборы</h3>
+                    <ul>
+                        <li><a href="/tovary/toy/soldatiki">Солдатики</a></li>
+                        <li><a href="/tovary/toy/robot">Роботы</a></li>
+                        <li><a href="/tovary/toy/figyrki">Игровые фигурки</a></li>
+                    </ul>
 
-                        </div>
+                </div>
 
-                    </div><!-- Конец контейнера на 4 колонки -->
+            </div>
+            <!-- Конец контейнера на 4 колонки -->
 
-                </li><!-- Конец пункта на 4 колонки -->
-                <li>
-                    <a href="/tovary/toy">ИГРУШКИ</a></li>
-                <li><a href="">АКСЕССУАРЫ</a></li>
-                <li>
-                    <a href='/carts/index'>Корзина</a>
-                </li>
-            </ul>
+        </li>
+        <!-- Конец пункта на 4 колонки -->
+        <li><a href="#" class="drop">ДЕТСКИЕ ИГРУШКИ</a><!-- Начало пунтка 4 колонки -->
+
+            <div class="dropdown_4columns"><!-- Начало контейнера на 4 колонки -->
+                <div class="col_1">
+
+                    <h3>Игрушки для малышей</h3>
+
+                    <ul>
+                        <li><a href="/tovary/toy/krovatky">На кроватку</a></li>
+                        <li><a href="/tovary/toy/koliasky">На коляску</a></li>
+                        <li><a href="/tovary/toy/kachalki">Качалки</a></li>
+                        <li><a href="/tovary/toy/pogremyshki">Погремушки</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="col_1">
+
+                    <h3>Мягкие игрушки</h3>
+                    <ul>
+                        <li><a href="/tovary/toy/big">Большие</a></li>
+                        <li><a href="/tovary/toy/little">Маленькие</a></li>
+                        <li><a href="/tovary/toy/interaktivni">Интерактивные</a></li>
+                    </ul>
+
+                </div>
+                <div class="col_1">
+
+                    <h3>Куклы</h3>
+                    <ul>
+                        <li><a href="/tovary/toy/barbi">Барби</a></li>
+                        <li><a href="/tovary/toy/pypsi">Пупсы</a></li>
+                        <li><a href="/tovary/toy/fei">Феи</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <!-- Конец контейнера на 4 колонки -->
+
+        </li>
+        <!-- Конец пункта на 4 колонки -->
+        <li>
+            <a href='/carts/index'>Корзина</a>
+        </li>
+    </ul>
 
     <div class="box_nav">
         <div class="info">
             <ul>
-               <?php if (isset($_SESSION['name'])) { ?>
+                <?php if (isset($_SESSION['name'])) { ?>
                 <li>
                     <a href=""><?=$_SESSION['name'].' '.$_SESSION['l_name']?></a>
                 </li>
-                    <?php if ($_SESSION['role'] == 'admin'){?>
-                        <li>
-                            <a href="/admin/orders/index">Настройка магазина</a>
-                        </li>
-                    <?php } ?>
+                <?php if ($_SESSION['role'] == 'admin'){?>
+                <li>
+                    <a href="/admin/orders/index">Настройка магазина</a>
+                </li>
+                <?php } ?>
                 <li>
                     <a href="/users/logout">Выход</a>
                 </li>
@@ -120,7 +165,7 @@
                 </li>
                 <?php } ?>
                 <li>
-                    <form action="" style="float: right; padding-right: 50px">
+                    <form action="/pages/search" method="post" style="float: right; padding-right: 50px">
                         Поиск <input type="search" name="search">
                     </form>
                 </li>
@@ -129,7 +174,7 @@
     </div>
 </header>
 <content>
-    <div class="container">
+    <div class="container" style="margin: 0 auto; width: 1200px ">
         <?php if( Session::hasFlash() ){ ?>
         <div class="alert alert-info" role="alert">
             <?php Session::flash(); ?>
@@ -143,8 +188,8 @@
     <div class="box_news">
         <ul>
             <li class="new">
-               PURCHASE KIDSMARKET FOR $55 NOW!
-               <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet.
+                PURCHASE KIDSMARKET FOR $55 NOW!
+                <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet.
             </li>
             <li>
                 ПОДПИСКА
@@ -154,93 +199,58 @@
             </li>
         </ul>
     </div>
-    <div class="info_site">
-        <div class="news">
-            <ul>
-                <li>
-                    <a href="">О нас</a>
-                </li>
-                <li>
-                    <a href="">Оплата</a>
-                </li>
-                <li>
-                    <a href="">Доставка</a>
-                </li>
-                <li>
-                    <a href="">Контакты</a>
-                </li>
-            </ul>
-        </div>
-        <div class="information">
-            <h4>ИНФОРМАЦИЯ</h4>
-            <ul>
-                <li>
-                    <a href="">О нас</a>
-                </li>
-                <li>
-                    <a href="">Оплата</a>
-                </li>
-                <li>
-                    <a href="">Доставка</a>
-                </li>
-                <li>
-                    <a href="">Контакты</a>
-                </li>
-            </ul>
-        </div>
-        <div class="contact">
-            <h4>КОНТАКТЫ</h4>
-            <ul>
-                <li>
-                    Megnor Com pvt Ltd, 507-Union Trade Center,
+    <div class="information">
+        <h4>ИНФОРМАЦИЯ</h4>
+        <ul>
+            <li>
+                <a href="/pages/about">О нас</a>
+            </li>
+            <li>
+                <a href="/pages/delivery">Оплата и доставка</a>
+            </li>
+            <li>
+                <a href="/pages/contact">Контакты</a>
+            </li>
+        </ul>
+    </div>
+    <div class="contact">
+        <h4>КОНТАКТЫ</h4>
+        <ul>
+            <li>
+                Megnor Com pvt Ltd, 507-Union Trade Center,
 
-                </li>
-                <li>
-                    (+91)-8866888222
-                </li>
-                <li>
-                    support@templatemela.com
-                </li>
-            </ul>
-            <h4>Оплата</h4>
-            <ul>
-                <li>
-                    Megnor Com pvt Ltd, 507-Union Trade Center,
-                    Udhana Darwaja,Ring Road, Surat, India.
-                </li>
-                <li>
-                    (+91)-8866888222
-                </li>
-                <li>
-                    support@templatemela.com
-                </li>
-            </ul>
-        </div>
-        </div>
+            </li>
+            <li>
+                (+91)-8866888222
+            </li>
+            <li>
+                support@templatemela.com
+            </li>
+        </ul>
     </div>
     <script>
-    function sendData(){
-        var val = $('select[name="statul"]').val();
-        $.ajax({
-            url: "default.html",
-            type: "POST",
-            data: val,
-            cache: false,
-            success: function(response){
-                //code
-            }
-        });
-    }
-</script>
+        function sendData() {
+            var val = $('select[name="statul"]').val();
+            $.ajax({
+                url: "default.html",
+                type: "POST",
+                data: val,
+                cache: false,
+                success: function (response) {
+                    //code
+                }
+            });
+        }
+    </script>
 
 </footer>
 
 <script type="text/javascript">
-    $(function() {
+    $(function () {
         $('#ei-slider').eislideshow({
-            easing		: 'easeOutExpo',
-            titleeasing	: 'easeOutExpo',
-            titlespeed	: 1200
+            easing: 'easeOutExpo',
+            titleeasing: 'easeOutExpo',
+            titlespeed: 1200
         });
     });
 </script>
